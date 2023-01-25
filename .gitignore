@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+package-lock.json
 
 # testing
 /coverage
@@ -19,6 +20,7 @@
 .env.test.local
 .env.production.local
 .history
+.vscode
 
 # secrets
 secrets.*.js

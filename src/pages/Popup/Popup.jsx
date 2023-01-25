@@ -12,10 +12,6 @@ const Popup = () => {
           chrome.tabs.query(
             { active: true, currentWindow: true },
             async function (tabs) {
-              // const cookies = await chrome.cookies.getAll({
-              //   domain: 'google.com',
-              // });
-              // console.log(cookies);
               chrome.tabs.sendMessage(
                 tabs[0].id,
                 {
