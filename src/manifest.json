@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Give me access",
+  "description": "A chrome extension that gives you access to paywall site",
+  "options_page": "options.html",
+  "background": { "service_worker": "background.bundle.js" },
+  "host_permissions": ["<all_urls>"],
+  "externally_connectable": {
+    "matches": ["<all_urls>"]
+  },
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "scripting"
+  ],
+  "messages": [
+    {
+        "name": "sendMessage",
+        "internal": true
+    }],
+  "__chrome__minimum_chrome_version": "88",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-34.png"
+  },
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "devtools_page": "devtools.html",
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "icon-128.png", "icon-34.png",  "popup.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
