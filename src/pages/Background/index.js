@@ -36,6 +36,7 @@ async function getAllCookies(domain) {
 }
 
 function tabReload() {
+  console.log('tabReload');
   chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
     var code = 'window.location.reload();';
     chrome.tabs.reload(tab.id);
