@@ -10,13 +10,19 @@ chrome.runtime.onMessage.addListener(async function (
   sender,
   sendResponse
 ) {
-  console.log('content listner');
+
   if (request.message == 'give me access') {
-    console.log('event recieved by content');
+
+
+    let domain;
+    if(request.type == "medium")
+    domain='medium.com';
+    else domain= window.location.hostname
+
     chrome.runtime.sendMessage(
       {
         message: 'give me access',
-        domain: window.location.hostname,
+        domain: domain,
       },
       function (response) {
         sendResponse({ message: 'done' });

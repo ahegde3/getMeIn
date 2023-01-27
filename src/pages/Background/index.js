@@ -7,11 +7,11 @@ chrome.runtime.onMessage.addListener(async function (
   sender,
   sendResponse
 ) {
-  console.log('listner');
+
 
   if (request.message == 'TEST') console.log('test message recieved');
   else if (request.message == 'give me access') {
-    console.log('event recieved by background');
+
     sendResponse({ message: 'done' });
     getAllCookies(request.domain);
   }
@@ -31,7 +31,7 @@ async function getAllCookies(domain) {
         });
       }
       tabReload();
-    } else console.log('else case');
+    } 
   });
 }
 
